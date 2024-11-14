@@ -16,6 +16,9 @@ export const ButtonContainer = styled.button`
         
         background: #E4105D;
 
+        &:hover {
+        color: #ffffff;
+
         &::after {
             content: '';
             position: absolute;
@@ -26,5 +29,7 @@ export const ButtonContainer = styled.button`
             height: calc(100% + 10px);
             border-radius: 22px;
         }
+    }
+
     `}
 `

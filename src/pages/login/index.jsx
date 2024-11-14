@@ -26,15 +26,17 @@ const Login = () => {
             if(data.length && data[0].id){
                 navigate('/feed') 
                 return
+            }else{
+            alert('Usuário ou senha inválido')
             }
 
-            alert('Usuário ou senha inválido')
-        }catch(e){
-            //TODO: HOUVE UM ERRO
+        }catch{
+            alert('houve um erro tente novamente.')
         }
     };
-
-    console.log('errors', errors);
+    const handleCreateAccount = () => {
+        navigate('/create');
+    };
 
     return (<>
         <Header />
@@ -46,7 +48,7 @@ const Login = () => {
             <Column>
                 <Wrapper>
                 <TitleLogin>Faça seu cadastro</TitleLogin>
-                <SubtitleLogin>Faça seu login e make the change._</SubtitleLogin>
+                <SubtitleLogin>And still making the change._</SubtitleLogin>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Input placeholder="E-mail" leftIcon={<MdEmail />} name="email"  control={control} />
                     {errors.email && <span>E-mail é obrigatório</span>}
@@ -56,7 +58,7 @@ const Login = () => {
                 </form>
                 <Row>
                     <EsqueciText>Esqueci minha senha</EsqueciText>
-                    <CriarText>Criar Conta</CriarText>
+                    <CriarText onClick={handleCreateAccount}>Criar Conta</CriarText>
                 </Row>
                 </Wrapper>
             </Column>
